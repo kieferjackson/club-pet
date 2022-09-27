@@ -1,0 +1,26 @@
+{
+  "name": "club-pet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kieferjackson/club-pet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kieferjackson/club-pet/issues"
+  },
+  "homepage": "https://github.com/kieferjackson/club-pet#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.18.1",
+    "mysql": "^2.18.1",
+    "sequelize": "^6.23.1"
+  }
+}
