@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS zoo_db;
+
+CREATE DATABASE zoo_db;
