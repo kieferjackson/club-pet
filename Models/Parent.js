@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt');
 class Parent extends Model {}
 
 // Basic filler properties to be updated 
-Parent.Init(
+Parent.init(
     {
         id: {
             type: DataTypes.INTEGER,

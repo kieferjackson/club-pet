@@ -1,5 +1,5 @@
 const router = require('express').Router();
-// TODO: include models here and change directory path if necessary >>> const { User } = require('../models');
+// TODO: include models here and change directory path if necessary >>> const { User } = require('../../models');
 
 // TODO: POST a new user
 
