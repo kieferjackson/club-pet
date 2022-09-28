@@ -1,6 +1,6 @@
 //CONNECTIONS
 const { Model, DataTypes } = require('sequelize');
-const seuqlize = require(../config/connection);
+const sequelize = require("../config/connection");
 const bcrypt = require('bcrypt');
 
 //Parent class inherits from file and extends to model database

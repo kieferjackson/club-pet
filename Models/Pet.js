@@ -1,6 +1,6 @@
 //CONNECTIONS
 const { Model, DataTypes } = require('sequelize');
-const seuqlize = require.appl(../config/connection);
+const sequelize = require("../config/connection");
 const bcrypt = require('bcrypt');
 
 //Pet class inherits from file and extends to model database
