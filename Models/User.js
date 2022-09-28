@@ -1,45 +1,47 @@
-//CONNECTIONS
+//CONNECTIONS 
 const { Model, DataTypes } = require('sequelize');
-const seuqlize = require.appl(../config/connection);
+const sequelize = require(../config/connection);
 const bcrypt = require('bcrypt');
 
-//Pet class inherits from file and extends to model database
-class Pet extends Model { }
+//User class inherits from file and extends to model database
+class User extends Model { }
 
-// Basic filler properties to be updated 
-Pet.init(
+//Data critiria for user login,  Basic filler properties to be updated 
+User.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            primaryKey: true,
             allowNull: false,
+            primaryKey: true,
             autoIncrement: true,
         },
-        pet_name: {
+        username: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        about_pet: {
+        email: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
+            validate: {
+                isEmail: true,
+            },
         },
-        owner_name: {
+        password: {
             type: DataTypes.STRING,
             allowNull: false,
-        },
-        pet_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'pet_name',
-                key: 'id',
+            validate: {
+                len: [6],
             },
         },
     },
     {
         sequelize,
+        timeStamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Pet',
+        modelName: 'user'
     }
 );
-module.exports = Pet;
+
+module.exports = User;
