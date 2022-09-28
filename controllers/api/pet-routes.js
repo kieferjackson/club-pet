@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Pet } = require('../../models');
 
+// GET Pet by id
 router.get('/:id', async (req, res) =>
 {
     const given_pet_id = req.params.id;
@@ -24,7 +25,7 @@ router.get('/:id', async (req, res) =>
     }
 })
 
-// TODO: POST a new pet
+// POST a new pet
 router.post('/', async (req, res) =>
 {
     try
