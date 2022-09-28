@@ -17,7 +17,7 @@ Parent.init(
         },
         pet_name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
         about_pet: {
             type: DataTypes.STRING,
@@ -27,6 +27,10 @@ Parent.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        num_pet: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },  
         parent_id: {
             type: DataTypes.INTEGER,
             references: {
