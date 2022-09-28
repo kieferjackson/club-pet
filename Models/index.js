@@ -1,9 +1,14 @@
+//CONNECTIONS
 const User = require('./User');
 const Parent = require('./Parent');
 const Pet = require('./Pet');
 
 
-//data relationships 
+//Data Relationship alias filler 
+User.hasMany(Parent, Pet, {
+    foreignKey: 'User_id',
+});
+
 Parent.hasMany(Pet, {
     foreignKey: 'User_id',
 });
