@@ -23,14 +23,10 @@ Pet.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        owner_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        pet_id: {
+        owner_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'pet_name',
+                model: 'user',
                 key: 'id',
             },
         },

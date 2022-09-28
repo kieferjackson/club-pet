@@ -14,7 +14,7 @@ Parent.hasMany(Pet, {
 });
 
 Pet.belongsTo(User, {
-    foreignKey: 'User_id',
+    foreignKey: 'owner_id',
 });
 
 module.exports = { User, Parent, Pet};
