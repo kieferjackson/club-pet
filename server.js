@@ -1,31 +1,40 @@
 const path = require('path');
 const express = require('express');
-// TODO: include session: 'express-session'
-// TODO: include handlebars: 'express-handlebars'
-// TODO: include sql_store: 'connect-session-sequelize'
+const session = require('express-session');
+const handlebars = require('express-handlebars');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
-// TODO: include helper functions
+const helpers = require('./utils/helpers');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// TODO: Define session parameters
-// const sess = {}
-//
-// app.use(session(sess));
+// Define session parameters
+const sess = 
+{
+    secret: 'Secret?',
+    cookie: {},
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({ db: sequelize })
+}
 
-// TODO: Include helper function with handlebars module
+app.use(session(sess));
+
+// Include helper functions into handlebars, and set app's render engine to handlebars
+const hbs = handlebars.create({ helpers });
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// TODO Uncomment the following line when 'public' folder is added
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-// TODO: Require that the sequelize database is synced before listening
+// Sync the database, then listen on set PORT
 sequelize.sync({ force: false }).then( () =>
 {
     app.listen(PORT, () => console.log('Now listening on port: ', PORT));
