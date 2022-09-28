@@ -5,7 +5,7 @@ const express = require('express');
 // TODO: include sql_store: 'connect-session-sequelize'
 
 const routes = require('./controllers');
-// TODO: include sequelize and setup config file with connection
+const sequelize = require('./config/connection');
 // TODO: include helper functions
 
 const app = express();
@@ -26,4 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 
 // TODO: Require that the sequelize database is synced before listening
-app.listen(PORT, () => console.log('Now listening on port: ', PORT));
+sequelize.sync({ force: false }).then( () =>
+{
+    app.listen(PORT, () => console.log('Now listening on port: ', PORT));
+})
