@@ -1,6 +1,5 @@
 const { Pet } = require("./Modles");
 
-//TODO input property and values 
 const petData = [
     {
         name: 'John Doe',
