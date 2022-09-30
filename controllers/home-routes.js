@@ -20,4 +20,16 @@ router.get('/', async (req, res) =>
     }
 });
 
+router.get('/login', (req, res) =>
+{
+    // Check if the user is logged in, redirect them to the homepage if they already are, otherwise render the login page
+    if (req.session.loggedIn)
+    {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('login');
+})
+
 module.exports = router;
