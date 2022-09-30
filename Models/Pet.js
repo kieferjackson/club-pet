@@ -1,7 +1,7 @@
 //CONNECTIONS
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require("../config/connection");
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt'); //Rmoved there is no bcyprt declared in file 
 
 //Pet class inherits from file and extends to model database
 class Pet extends Model { }
