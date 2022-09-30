@@ -8,7 +8,7 @@ router.get('/', async (req, res) =>
     {
         const userData = await User.findAll({ include: { model: Pet }});
 
-        const users = userData.map( (user) => gallery.get({ plain: true }));
+        const users = userData.map( (user) => user.get({ plain: true }));
 
         res.status(200).json(users);
     }
