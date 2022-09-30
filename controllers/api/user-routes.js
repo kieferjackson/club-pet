@@ -20,7 +20,7 @@ router.post('/', async (req, res) =>
         {
             req.session.loggedIn = true;
 
-            req.status(200).json(newUser);
+            res.status(200).json(newUser);
         });
     }
     catch (error)
