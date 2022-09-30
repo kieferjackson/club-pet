@@ -4,7 +4,7 @@ const userData = [
     {
         name: 'John Doe', 
         owner_id: '1',
-        num_pet: '4',
+        num_pet: '1',
     },
 
 ];

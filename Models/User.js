@@ -1,11 +1,11 @@
 //CONNECTIONS 
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require("../config/connection");
+const sequelize = require("../config/connection.js");
 const bcrypt = require('bcrypt');
-const Parent = require('./Parent');
+
 
 //User class inherits from file and extends to model database
-//
+
 class User extends Model { 
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
@@ -41,41 +41,11 @@ User.init(
             },
         },
     },
-);
-class Parent extends Model {}     
-Parent.Init(
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            allowNull: false,
-            autoIncrement: true,
-        },
-        pet_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        about_pet: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        num_pet: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        name: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
-        },
-    },
     {
     hooks: {
         async beforeCreate(newUserData) {
-            newUserData.password = await bcrypt.hash(newUserData.password, 10);
-            return newUserData;
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
         },
         },  
         sequelize,
@@ -84,6 +54,7 @@ Parent.Init(
         underscored: true,
         modelName: 'user'
     }
+    
 );
-
-module.exports = User, Parent;
+    
+module.exports = User;
