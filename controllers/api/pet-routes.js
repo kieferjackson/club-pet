@@ -23,7 +23,31 @@ router.get('/:id', async (req, res) =>
         console.log(error);
         res.status(500).json(error);
     }
-})
+});
+
+// Get all pets for an individual user
+router.get('/owned_by/:owner_id', async (req, res) =>
+{
+    const given_owner_id = req.params.owner_id;
+
+    try
+    {
+        const petsOfOwner = await Pet.findAll({ where: { owner_id: given_owner_id }});
+
+        if (!petsOfOwner)
+        {
+            res.status(404).json({ message: `No pets belong to this owner` });
+            return;
+        }
+
+        res.status(200).json(petsOfOwner);
+    }
+    catch (error)
+    {
+        console.log(error);
+        res.status(500).json(error);
+    }
+});
 
 // POST a new pet
 router.post('/', async (req, res) =>
@@ -39,7 +63,7 @@ router.post('/', async (req, res) =>
             }
         );
 
-        req.status(200).json(newPet);
+        res.status(200).json(newPet);
     }
     catch (error)
     {
