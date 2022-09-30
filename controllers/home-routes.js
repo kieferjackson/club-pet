@@ -10,7 +10,8 @@ router.get('/', async (req, res) =>
 
         const users = userData.map( (user) => user.get({ plain: true }));
 
-        res.status(200).json(users);
+        // Render all users on the homepage
+        res.render('user', { users, loggedIn: req.session.loggedIn });
     }
     catch (error)
     {
