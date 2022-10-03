@@ -1,6 +1,10 @@
 const router = require('express').Router();
 const { Pet } = require('../../models');
 
+// Handle file uploads
+const file_upload = require('express-fileupload');
+router.use(file_upload());
+
 // GET Pet by id
 router.get('/:id', async (req, res) =>
 {
@@ -54,16 +58,34 @@ router.post('/', async (req, res) =>
 {
     try
     {
-        const newPet = await Pet.create
-        (
+        console.log('REQUEST FILES', req.files);
+        const { pet_image } = req.files;
+        const { pet_name, about_pet, owner_id } = req.body;
+        
+        // Check that request body contains pet name, about, and owner id
+        if (pet_name && about_pet && owner_id)
+        {
+            if (!pet_image)
             {
-                pet_name: req.body.pet_name,
-                about_pet: req.body.about_pet,
-                owner_id: req.body.owner_id
+                res.status(400).json({ message: `The image failed to upload` });
+                return;
             }
-        );
 
-        res.status(200).json(newPet);
+            const newPet = await Pet.create
+            (
+                {
+                    pet_name: req.body.pet_name,
+                    about_pet: req.body.about_pet,
+                    owner_id: req.body.owner_id
+                }
+            );
+
+            res.status(200).json(newPet);
+        }
+        else
+        {
+            res.status(400).json({ message: `Insufficient information to add pet` });
+        }
     }
     catch (error)
     {

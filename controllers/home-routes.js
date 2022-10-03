@@ -30,6 +30,21 @@ router.get('/login', (req, res) =>
     }
 
     res.render('login');
-})
+});
+
+router.get('/my_pets/:id', async (req, res) =>
+{
+    try
+    {
+        const userAndPetData = await User.findByPk(req.params.id, { include: { model: Pet } });
+
+        res.render('my-pets', { userAndPetData, loggedIn: req.session.loggedIn });
+    }
+    catch (error)
+    {
+        console.log(error);
+        res.status(500).json(error);
+    }
+});
 
 module.exports = router;
