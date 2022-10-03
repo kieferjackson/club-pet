@@ -35,7 +35,7 @@ Pet.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Pet',
+        modelName: 'pet',
     }
 );
 module.exports = Pet;

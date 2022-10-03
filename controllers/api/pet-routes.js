@@ -74,9 +74,9 @@ router.post('/', async (req, res) =>
             const newPet = await Pet.create
             (
                 {
-                    pet_name: req.body.pet_name,
-                    about_pet: req.body.about_pet,
-                    owner_id: req.body.owner_id
+                    pet_name,
+                    about_pet,
+                    owner_id
                 }
             );
 
