@@ -23,19 +23,25 @@ Pet.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        image: {
+            type: DataTypes.BLOB('long'),
+            // Images for pets are optional to the user
+            allowNull: true
+        },
         owner_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'id',
             },
-        },
+        }
     },
     {
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Pet',
+        modelName: 'pet',
     }
 );
+
 module.exports = Pet;
