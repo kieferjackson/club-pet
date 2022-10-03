@@ -62,15 +62,23 @@ router.post('/', async (req, res) =>
         const { pet_image } = req.files;
         const { pet_name, about_pet, owner_id } = req.body;
         
-        // Check that request body contains pet name, about, and owner id
-        if (pet_name && about_pet && owner_id)
+        // Check that request body contains pet name, about, owner id, and pet image
+        if (pet_name && about_pet && owner_id && pet_image)
         {
-            if (!pet_image)
-            {
-                res.status(400).json({ message: `The image failed to upload` });
-                return;
-            }
+            const newPet = await Pet.create
+            (
+                {
+                    pet_name,
+                    about_pet,
+                    owner_id,
+                    image: pet_image
+                }
+            );
 
+            res.status(200).json(newPet);
+        }
+        else if (pet_name && about_pet && owner_id)
+        {
             const newPet = await Pet.create
             (
                 {

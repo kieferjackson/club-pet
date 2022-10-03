@@ -38,6 +38,13 @@ router.get('/my_pets/:id', async (req, res) =>
     {
         const userPetData = await User.findByPk(req.params.id, { include: { model: Pet } });
         
+        // Check that a user exists with the given ID
+        if (!userPetData)
+        {
+            res.status(404).json({ message: `No user with ID ${req.params.id}` });
+            return;
+        }
+
         const { username } = userPetData;
         const pets = userPetData.pets.map( (pet) => pet.get({ plain: true }));
 
