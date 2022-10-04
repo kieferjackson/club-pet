@@ -11,7 +11,7 @@ router.get('/', async (req, res) =>
         const users = userData.map( (user) => user.get({ plain: true }));
 
         // Render all users on the homepage
-        res.render('user', { users, loggedIn: req.session.loggedIn });
+        res.render('user', { users, loggedIn: req.session.loggedIn, user_id: req.session.user_id });
     }
     catch (error)
     {
@@ -48,7 +48,7 @@ router.get('/my_pets/:id', async (req, res) =>
         const { username } = userPetData;
         const pets = userPetData.pets.map( (pet) => pet.get({ plain: true }));
 
-        res.render('my-pets', { username, pets, loggedIn: req.session.loggedIn });
+        res.render('my-pets', { username, pets, loggedIn: req.session.loggedIn, user_id: req.session.user_id });
     }
     catch (error)
     {
