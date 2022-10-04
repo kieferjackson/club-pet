@@ -17,8 +17,8 @@
   <nav>
     <a href="/">Dashboard</a>
     {{#if loggedIn}}
-    <a href="/">My Pets</a>
-    <a href="/">Logout</a>
+    <a href="/my_pets/{{user_id}}">My Pets</a>
+    <button onclick="logoutUser()">Logout</button>
     {{else}}
     <a href="/login">Login</a>
     {{/if}}
@@ -33,5 +33,7 @@
     </div>
   </main>
 </body>
+
+<script src="/js/logout.js"></script>
 
 </html>
