@@ -6,7 +6,7 @@ router.get('/', async (req, res) =>
 {
     try
     {
-        const userData = await User.findAll({ include: { model: Pet }});
+        const userData = await User.findAll({ include: { model: Pet }}, { order: [['id', 'ASC']] });
 
         const users = userData.map( (user) => user.get({ plain: true }));
 

@@ -58,33 +58,38 @@ router.post('/', async (req, res) =>
 {
     try
     {
-        console.log('REQUEST FILES', req.files);
-        const { pet_image } = req.files;
-        const { pet_name, about_pet, owner_id } = req.body;
+        const { pet_name, about_pet, sex, species_id } = req.body;
         
         // Check that request body contains pet name, about, owner id, and pet image
-        if (pet_name && about_pet && owner_id && pet_image)
+        if (pet_name && about_pet && sex && species_id && req.files)
         {
+            const { pet_image } = req.files;
+            console.log('REQUEST FILES', pet_image);
+
             const newPet = await Pet.create
             (
                 {
                     pet_name,
                     about_pet,
-                    owner_id,
+                    sex,
+                    species_id,
+                    owner_id: req.session.user_id,
                     image: pet_image
                 }
             );
 
             res.status(200).json(newPet);
         }
-        else if (pet_name && about_pet && owner_id)
+        else if (pet_name && about_pet && sex && species_id)
         {
             const newPet = await Pet.create
             (
                 {
                     pet_name,
                     about_pet,
-                    owner_id
+                    sex,
+                    species_id,
+                    owner_id: req.session.user_id
                 }
             );
 
