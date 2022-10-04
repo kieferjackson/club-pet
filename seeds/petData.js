@@ -4,7 +4,7 @@ const petData = [
     {
         name: 'John Doe',
         owner_id: '1',
-        pet_name: 'Jaz', 
+        pet_name: 'Jax', 
         species: 'Dog',
     },
 ];
