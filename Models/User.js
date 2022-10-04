@@ -5,14 +5,13 @@ const bcrypt = require('bcrypt');
 
 
 //User class inherits from file and extends to model database
-
 class User extends Model { 
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
 }
 
-//Data critiria for user login,  Basic filler properties to be updated 
+//Data critiria for user login
 User.init(
     {
         id: {
