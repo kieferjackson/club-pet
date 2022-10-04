@@ -20,7 +20,7 @@ router.post('/', async (req, res) =>
         {
             req.session.loggedIn = true;
 
-            req.status(200).json(newUser);
+            res.status(200).json(newUser);
         });
     }
     catch (error)
@@ -46,8 +46,8 @@ router.post('/login', async (req, res) =>
             return;
         }
 
-        // TODO: Implement password checking here, currently just set to 'true' for testing
-        const passwordValid = true;
+        // Verify that the given password matches the password for this user
+        const passwordValid = await userToLogin.checkPassword(req.body.password);
 
         if (!passwordValid)
         {
@@ -69,7 +69,7 @@ router.post('/login', async (req, res) =>
     }
 });
 
-// TODO: POST a user's logout request
+// POST a user's logout request
 router.post('/logout', (req, res) =>
 {
     // If the user is logged in, then the session will be destroyed, otherwise end the response process
@@ -81,6 +81,6 @@ router.post('/logout', (req, res) =>
     {
         res.status(404).end();
     }
-})
+});
 
 module.exports = router;

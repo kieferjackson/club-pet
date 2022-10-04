@@ -1,0 +1,16 @@
+{{!-- user handling --}}
+
+<section class="container">
+    {{#each users as |user| }}
+    <h3 class="username"> {{user.username}}</h3>
+    <section class="flex-row justify-center">
+        <a href="/user/{{id}}">
+<<<<<<< HEAD:view/user.handlebars
+        <header> {{username}} </header>
+=======
+            <header>{{username}}</header>
+>>>>>>> c9d238c24f0e6ee81ce20968ce30e909310d2cd9:views/user.handlebars
+        </a>
+    </section>
+    {{/each}}
+</section>

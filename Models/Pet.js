@@ -22,9 +22,16 @@ Pet.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+<<<<<<< HEAD
         species: {
             type: DataTypes.STRING,
             allowNull: false,
+=======
+        image: {
+            type: DataTypes.BLOB('long'),
+            // Images for pets are optional to the user
+            allowNull: true
+>>>>>>> c9d238c24f0e6ee81ce20968ce30e909310d2cd9
         },
         owner_id: {
             type: DataTypes.INTEGER,
@@ -32,13 +39,14 @@ Pet.init(
                 model: 'user',
                 key: 'id',
             },
-        },
+        }
     },
     {
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Pet',
+        modelName: 'pet',
     }
 );
+
 module.exports = Pet;

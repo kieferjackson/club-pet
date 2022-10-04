@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZOO</title>
-  {{!-- <link rel="stylesheet" type="text/css" href="/css/jass.css"> --}}
+  {{!--
+  <link rel="stylesheet" type="text/css" href="/css/jass.css"> --}}
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
@@ -15,16 +16,23 @@
   </header>
   <nav>
     <a href="/">Dashboard</a>
+<<<<<<< HEAD:view/main.handlebars
     <a href="/">Dashboard</a>
     <a href="/">Dashboard</a> 
+=======
+    {{#if loggedIn}}
+    <a href="/">My Pets</a>
+    <a href="/">Logout</a>
+    {{else}}
+    <a href="/login">Login</a>
+    {{/if}}
+
+>>>>>>> c9d238c24f0e6ee81ce20968ce30e909310d2cd9:views/layouts/main.handlebars
   </nav>
   <main>
     <aside>
       <h2> The Pets and Their Owners!</h2>
     </aside>
-    <div class="pet">
-      {{{body}}}
-    </div>
     <div class="user">
       {{{body}}}
     </div>

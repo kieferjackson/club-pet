@@ -1,0 +1,16 @@
+<section>
+    <form action="/api/pets" method="POST" enctype="multipart/form-data">
+        <label for="pet_name">Pet Name:</label>
+        <input type="text" name="pet_name" />
+
+        <label for="about_pet">About Pet:</label>
+        <input type="text" name="about_pet" />
+
+        {{!-- TEMPORY FIELD FOR TESTING --}}
+        <label for="owner_id">OWNER ID (TESTING)</label>:</label>
+        <input type="text" name="owner_id" />
+
+        <input type="file" name="pet_image" />
+        <button type="submit">Submit</button>
+    </form>
+</section>
