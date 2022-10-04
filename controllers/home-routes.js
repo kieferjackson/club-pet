@@ -45,10 +45,10 @@ router.get('/my_pets/:id', async (req, res) =>
             return;
         }
 
-        const { username } = userPetData;
+        const { username, id } = userPetData;
         const pets = userPetData.pets.map( (pet) => pet.get({ plain: true }));
 
-        res.render('my-pets', { username, pets, loggedIn: req.session.loggedIn, user_id: req.session.user_id });
+        res.render('my-pets', { username, id, pets, loggedIn: req.session.loggedIn, user_id: req.session.user_id });
     }
     catch (error)
     {
