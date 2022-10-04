@@ -21,7 +21,21 @@ Pet.init(
         about_pet: {
             type: DataTypes.STRING,
             allowNull: false,
-
+        },
+        sex:
+        {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        likes:
+        {
+            type: DataTypes.INTEGER,
+            defaultValue: 1
+        },
+        image: {
+            type: DataTypes.BLOB('long'),
+            // Images for pets are optional to the user
+            allowNull: true
         },
         species_id: {
             type: DataTypes.INTEGER,
@@ -30,11 +44,6 @@ Pet.init(
                 key: 'id'
             },
         }, 
-        image: {
-            type: DataTypes.BLOB('long'),
-            // Images for pets are optional to the user
-            allowNull: true
-        },
         owner_id: {
             type: DataTypes.INTEGER,
             references: {
