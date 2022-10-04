@@ -2,11 +2,15 @@ const { User } = require("../Models");
 
 const userData = [
     {
-        name: 'John Doe', 
-        owner_id: '1',
-        num_pet: '1',
+        username: 'rolling_star', 
+        email: 'prince@cosmos.com',
+        password: 'password123',
     },
-
+    {
+        username: 'johnwick4', 
+        email: 'johnwick@hotmail.com',
+        password: 'r3min6ton',
+    },
 ];
 
 const seedUser = () => User.bulkCreate(userData);

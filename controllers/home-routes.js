@@ -47,8 +47,9 @@ router.get('/my_pets/:id', async (req, res) =>
 
         const { username, id } = userPetData;
         const pets = userPetData.pets.map( (pet) => pet.get({ plain: true }));
+        const user_is_owner = id === req.session.user_id;
 
-        res.render('my-pets', { username, id, pets, loggedIn: req.session.loggedIn, user_id: req.session.user_id });
+        res.render('my-pets', { username, pets, user_is_owner, loggedIn: req.session.loggedIn, user_id: req.session.user_id });
     }
     catch (error)
     {
