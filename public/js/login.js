@@ -19,7 +19,7 @@ async function loginUser()
         }
         else 
         {
-            alert('Failed to sign up.');
+            alert('Failed to login.');
         }
     }
 }
