@@ -1,12 +1,11 @@
 //CONNECTIONS
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require("../config/connection");
-// const bcrypt = require('bcrypt'); //Rmoved there is no bcyprt declared in file 
 
 //Pet class inherits from file and extends to model database
 class Pet extends Model { }
 
-// Basic filler properties to be updated 
+ 
 Pet.init(
     {
         id: {
@@ -22,7 +21,15 @@ Pet.init(
         about_pet: {
             type: DataTypes.STRING,
             allowNull: false,
+
         },
+        species_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'species',
+                key: 'id'
+            },
+        }, 
         image: {
             type: DataTypes.BLOB('long'),
             // Images for pets are optional to the user

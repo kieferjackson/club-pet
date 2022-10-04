@@ -1,9 +1,10 @@
 //CONNECTIONS
 const User = require('./User');
 const Pet = require('./Pet');
+const Species = require('./Species');
 
 
-//Data Relationship alias filler 
+//Data Relationship 
 User.hasMany(Pet, {
     foreignKey: 'owner_id',
 });
@@ -11,4 +12,11 @@ Pet.belongsTo(User, {
     foreignKey: 'owner_id',
 });
 
-module.exports = { User, Pet};
+Species.hasMany(Pet, {
+    foreignKey: 'species_id',
+});
+Pet.belongsTo(Species, {
+    foreignKey: 'species_id',
+});
+
+module.exports = { User, Pet, Species};
