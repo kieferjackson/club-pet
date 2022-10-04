@@ -1,11 +1,11 @@
 const sequelize = require("./config/connection.js");
 const seedUser = require("./userData");
 const seedPet = require("./petData"); 
-const userData = require("./userData.json");
+const seedAll = require("./userData.json");
 
-//CHECK seed files and values, check terminal to see if listening or connected  
+
 let seedAll = async () => {
-    await sequelize.sync({ force: false }); //changed to false, to run tests
+    await sequelize.sync({ force: true }); 
     
     await seedUser ();
 

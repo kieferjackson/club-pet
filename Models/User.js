@@ -12,7 +12,7 @@ class User extends Model {
     }
 }
 
-//Data critiria for user login,  Basic filler properties to be updated 
+//Data critiria for user login 
 User.init(
     {
         id: {
