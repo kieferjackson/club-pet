@@ -1,4 +1,4 @@
-const { Species } = require("../Models");
+const { Species } = require("../models");
 
 const speciesData = [
     {

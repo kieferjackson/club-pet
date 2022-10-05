@@ -1,5 +1,23 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Pet } = require('../../models');
+
+router.get('/all', async (req, res) =>
+{
+    try
+    {
+        const userData = await User.findAll({ include: { model: Pet }});
+
+        const users = userData.map( (user) => user.get({ plain: true }));
+
+        // Render all users on the homepage
+        res.status(200).json(users);
+    }
+    catch (error)
+    {
+        console.log(error);
+        res.status(500).json(error);
+    }
+});
 
 // POST a new user
 router.post('/', async (req, res) =>
@@ -36,8 +54,10 @@ router.post('/login', async (req, res) =>
 {
     try
     {
+        console.log('REQUEST BODY:', req.body);
         // Query the user based on given email address
         const userToLogin = await User.findOne({ where: { email: req.body.email } });
+        console.log(userToLogin);
 
         const GENERIC_ERROR = 'Incorrect email or password. Please try again.'
 

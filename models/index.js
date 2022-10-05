@@ -12,6 +12,7 @@ Pet.belongsTo(User, {
     foreignKey: 'owner_id',
 });
 
+// Pet/Species Relationship
 Species.hasMany(Pet, {
     foreignKey: 'species_id',
 });
