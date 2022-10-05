@@ -1,0 +1,28 @@
+
+/* original css file created, when updating handle bars and for testing to see if page i
+is responsive to elements. same css template is copied in main.handlebars*/
+
+
+
+.center, .center-column, .top, .right, .bottom, .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.center{
+    flex-direction: column;
+}
+.top, .right, .bottom, .left{
+    align-items: flex-start;
+    justify-content: flex-end;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+.single-spaced, .single-spaced * {
+    line-height: 1;
+}
+.hero {
+    background: url(https://data.whicdn.com/images/346178640/original.png);
+
+}
+
