@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', getSpecies());
 async function getSpecies()
 {
 
-    const response = await fetch('/api/species',
+    await fetch('/api/species',
     {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
@@ -20,8 +20,23 @@ async function getSpecies()
             throw Error(response.statusText);
         }
     })
-    .then( (data) =>
+    .then( (species_data) =>
     {
-        console.log(data);
+        const SPECIES_MENU = document.querySelector('#species_list');
+        let initial_option = document.createElement('option');
+        initial_option.innerText = '- Select Species -';
+
+        SPECIES_MENU.appendChild(initial_option);
+
+        // Add Species options to dropdown menu
+        for (let [index, species] of species_data.entries())
+        {
+            let species_option = document.createElement('option');
+            species_option.innerText = species.name;
+            species_option.dataset.id = index + 1;
+
+            SPECIES_MENU.appendChild(species_option);
+        }
+        console.log(species_data);
     });
 }

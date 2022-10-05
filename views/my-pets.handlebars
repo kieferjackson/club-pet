@@ -13,4 +13,7 @@
     {{/if}}
 </section>
 
+{{!-- Only the owner user needs species data when adding a pet, otherwise not necessary --}}
+{{#if user_is_owner}}
 <script src="/js/getSpecies.js"></script>
+{{/if}}
