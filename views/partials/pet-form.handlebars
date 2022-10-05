@@ -1,17 +1,19 @@
 <section>
-    <form action="/api/pets" method="POST" enctype="multipart/form-data">
+    <form action="/api/pets" method="POST" enctype="multipart/form-data" onsubmit="return checkFormSubmission()">
         <label for="pet_name">Pet Name:</label>
-        <input type="text" name="pet_name" />
+        <input type="text" name="pet_name" id="pet_name" />
 
         <label for="about_pet">About Pet:</label>
-        <input type="text" name="about_pet" />
+        <input type="text" name="about_pet" id="about_pet" />
 
-        <label for="sex">Sex:</label>
-        <input type="text" name="sex" />
+        <section class="sex_selection">
+            <label for="male_option">Male</label>
+            <input type="radio" name="sex" value="male" id="male_option">
+            <label for="female_option">Female</label>
+            <input type="radio" name="sex" value="female" id="female_option">
+        </section>
 
-        {{!-- TEMPORY FIELD FOR TESTING --}}
-        <label for="species_id">Species ID:</label>
-        <input type="text" name="species_id" />
+        <select name="species" id="species_list"></select>
 
         <input type="file" name="pet_image" />
         <button type="submit">Submit</button>
