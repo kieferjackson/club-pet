@@ -83,7 +83,8 @@ router.post('/', async (req, res) =>
                 }
             );
 
-            res.status(200).json(newPet);
+            res.redirect(`/my_pets/${req.session.user_id}`);
+            return;
         }
         else if (pet_name && about_pet && sex && selectedSpecies)
         {
@@ -98,7 +99,8 @@ router.post('/', async (req, res) =>
                 }
             );
 
-            res.status(200).json(newPet);
+            res.redirect(`/my_pets/${req.session.user_id}`);
+            return;
         }
         else
         {
