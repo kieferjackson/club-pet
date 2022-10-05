@@ -1,4 +1,4 @@
-const { Pet } = require("../Models");
+const { Pet } = require("../models");
 
 const petData = [
     {
