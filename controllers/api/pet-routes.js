@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Pet } = require('../../models');
+const { Pet, Species } = require('../../models');
 
 // Handle file uploads
 const file_upload = require('express-fileupload');
@@ -58,10 +58,15 @@ router.post('/', async (req, res) =>
 {
     try
     {
-        const { pet_name, about_pet, sex, species_id } = req.body;
+        const { pet_name, about_pet, sex } = req.body;
+
+        console.log('SELECTED SPECIES IS: ', req.body);
+
+        // Find the selected species in the database by the given species name
+        const selectedSpecies = await Species.findOne({ where: { name: req.body.species } });
         
         // Check that request body contains pet name, about, owner id, and pet image
-        if (pet_name && about_pet && sex && species_id && req.files)
+        if (pet_name && about_pet && sex && selectedSpecies && req.files)
         {
             const { pet_image } = req.files;
             console.log('REQUEST FILES', pet_image);
@@ -72,7 +77,7 @@ router.post('/', async (req, res) =>
                     pet_name,
                     about_pet,
                     sex,
-                    species_id,
+                    species_id: selectedSpecies.id,
                     owner_id: req.session.user_id,
                     image: pet_image
                 }
@@ -80,7 +85,7 @@ router.post('/', async (req, res) =>
 
             res.status(200).json(newPet);
         }
-        else if (pet_name && about_pet && sex && species_id)
+        else if (pet_name && about_pet && sex && selectedSpecies)
         {
             const newPet = await Pet.create
             (
@@ -88,7 +93,7 @@ router.post('/', async (req, res) =>
                     pet_name,
                     about_pet,
                     sex,
-                    species_id,
+                    species_id: selectedSpecies.id,
                     owner_id: req.session.user_id
                 }
             );

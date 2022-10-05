@@ -32,9 +32,10 @@ async function getSpecies()
         for (let [index, species] of species_data.entries())
         {
             let species_option = document.createElement('option');
-            species_option.innerText = species.name;
-            species_option.dataset.id = index + 1;
 
+            // Set both the option text and value to the species name
+            species_option.innerText = species_option.value = species.name;
+            
             SPECIES_MENU.appendChild(species_option);
         }
         console.log(species_data);
