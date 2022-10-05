@@ -29,7 +29,7 @@ async function getSpecies()
         SPECIES_MENU.appendChild(initial_option);
 
         // Add Species options to dropdown menu
-        for (let [index, species] of species_data.entries())
+        for (let species of species_data)
         {
             let species_option = document.createElement('option');
 
