@@ -4,7 +4,7 @@ const petData = [
     {
         pet_name: 'Cosmos',
         about_pet: 'Such a great dog! One day, he hopes to be a jazz singer.',
-        sex:  'female',
+        sex:  'male',
         likes: 1,
         species_id: 1,
         owner_id: 1    

@@ -1,39 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+ {{!-- TODO when confirming files sheets are connected suchas the CSS file, error message to create file --}}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{!-- integrated css folder and bulma --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZOO</title>
-  {{!--
-  <link rel="stylesheet" type="text/css" href="/css/jass.css"> --}}
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
-</head>
+  <style>
+    .center, .center-column, .top, .right, .bottom, .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .center{
+        flex-direction: column;
+    }
+    .top, .right, .bottom, .left{
+        align-items: flex-start;
+        justify-content: flex-end;
+        align-items: flex-end;
+        justify-content: flex-start;
+    }
+    .single-spaced, .single-spaced * {
+        line-height: 1;
+    }
+    .hero {
+        background: url(https://data.whicdn.com/images/346178640/original.png);
 
-<body>
-  <header>
-    <h1>Welcome to Club Pets</h1>
-  </header>
-  <nav>
-    <a href="/">Dashboard</a>
-    {{#if loggedIn}}
-    <a href="/my_pets/{{user_id}}">My Pets</a>
-    <button onclick="logoutUser()">Logout</button>
-    {{else}}
-    <a href="/login">Login</a>
-    {{/if}}
+    }
+  </style>
 
-  </nav>
-  <main>
-    <aside>
-      <h2> The Pets and Their Owners!</h2>
-    </aside>
-    <div class="user">
-      {{{body}}}
-    </div>
-  </main>
-</body>
+  <body>
+    {{!-- .hero --}}
+    <section class="hero is-fullheight">
 
-<script src="/js/logout.js"></script>
+      <nav class="hero-head ">
+        <div class="column center">
+          <p class="navbar-item is-size-1 has-text-black has-text-weight-bold">Welcome To Club Pet!</p>
+        </div>
+        {{!-- .hero end --}}
 
+        {{!-- .hero head --}}
+        <div class="column center">
+          {{!--NAVBAR integrated handlebars with HTML attributes --}}
+            <p class="navbar-item has-text-weight-bold"><a href="/">DASHBOARD</a></p>
+          {{#if loggedIn}}  
+            <p class="navbar-item has-text-weight-bold"><a href="/my_pets/{{user_id}}">MY PETS</a></p>
+            <button onclick="logoutUser()">LOGOUT</button>
+            {{else}}
+            <a href="/login">Login</a>
+            <p class="is-active"><a href="#"></a></p>
+          {{/if}}  
+        </div>
+      </nav>
+      {{!-- .hero head end--}}
+
+      {{!-- .hero body --}}
+      <header class="hero-body">
+        <section class="section ">
+          <div class="container">
+            <div class="columns">
+              <div class="column">
+                <div class="notification is-warning">
+                  <h1 class="column center is-size-4 has-text-black"> WOOF! New Friend!?!</h1> 
+                  <div class="signUp has-text-black">
+                     {{{body}}} {{!--Testing if page is responsive, then add sign up handlebars here --}}
+                  </div> 
+                </div>
+              </div>
+              <div class="column">
+                <div class="notification is-primary">
+                  <h1 class="column center is-size-4 has-text-black">MEOW! Great You're Back...</h1> 
+                  <div class="user has-text-black">
+                    {{{body}}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>  
+      </header> 
+    </section>    
+  </body>  
+
+ <script src="/js/logout.js"></script>
 </html>

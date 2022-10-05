@@ -1,7 +1,5 @@
-
-/* original css file created, when updating handle bars and for testing to see if page i
-is responsive to elements. same css template is copied in main.handlebars*/
-
+/* css file created when linking style.css file. Before created, when following link to confirm successful 
+error message appeared stated no style.css file created. */
 
 
 .center, .center-column, .top, .right, .bottom, .left {
@@ -25,4 +23,3 @@ is responsive to elements. same css template is copied in main.handlebars*/
     background: url(https://data.whicdn.com/images/346178640/original.png);
 
 }
-
