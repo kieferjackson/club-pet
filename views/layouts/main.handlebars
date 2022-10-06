@@ -13,7 +13,7 @@
 
 <body>
   {{!-- .hero --}}
-  <section class="hero is-fullheight">
+  <section class="hero">
 
     <nav class="hero-head ">
       <div class="column center">
@@ -25,30 +25,29 @@
       <div class="column center">
         {{!--NAVBAR integrated handlebars with HTML attributes --}}
         <p class="navbar-item has-text-weight-bold">
-          <a class="button is-primary" href="/">DASHBOARD</a>
+          <a class="button is-primary navbar_btn" href="/">DASHBOARD</a>
         </p>
         {{#if loggedIn}}
         <p class="navbar-item has-text-weight-bold">
-          <a class="button is-link" href="/my_pets/{{user_id}}">MY PETS</a>
+          <a class="button is-link navbar_btn" href="/my_pets/{{user_id}}">MY PETS</a>
         </p>
-        <button class="button" onclick="logoutUser()">LOGOUT</button>
+        <button class="button navbar_btn" onclick="logoutUser()">LOGOUT</button>
         {{else}}
         {{!-- <a href="/login">Login</a> --}}
-        <p class="is-active"><a class="button" href="/login">Login</a></p>
+        <p class="is-active"><a class="button navbar_btn" href="/login">Login</a></p>
         {{/if}}
       </div>
     </nav>
     {{!-- .hero head end--}}
-
-    {{!-- Centered body content --}}
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-half">
-          {{{body}}}
-        </div>
+  </section>
+  {{!-- Centered body content --}}
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+        {{{body}}}
       </div>
     </div>
-  </section>
+  </div>
 </body>
 
 <script src="/js/logout.js"></script>

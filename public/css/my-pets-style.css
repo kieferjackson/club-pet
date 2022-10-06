@@ -1,5 +1,11 @@
 
-.pet-details
+.modal_button_container
 {
-    background-color: #fff;
+    background-color: unset;
+    box-shadow: unset;
+}
+
+.pet_card:hover
+{
+    transform: scale(1.005);
 }
