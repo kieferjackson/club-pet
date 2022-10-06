@@ -9,28 +9,52 @@
         {{!-- Add Pet Form --}}
         <form action="/api/pets" method="POST" enctype="multipart/form-data" onsubmit="return checkFormSubmission()">
             <section class="modal-card-body">
-                <section class="text_field">
-                    <label for="pet_name">Pet Name:</label>
-                    <input type="text" name="pet_name" id="pet_name" />
-                </section>
+                <div class="field">
+                    <label class="label">Pet Name</label>
+                    <div class="control">
+                        <input class="input" type="text" name="pet_name" id="pet_name" />
+                    </div>
+                </div>
 
-                <section class="text_field">
-                    <label for="about_pet">About Pet:</label>
-                    <input type="text" name="about_pet" id="about_pet" />
-                </section>
+                <div class="field">
+                    <label class="label">About Pet</label>
+                    <div class="control">
+                        <textarea class="textarea" name="about_pet" id="about_pet"></textarea>
+                    </div>
+                </div>
 
-                <section class="sex_selection">
-                    <label for="male_option">Male</label>
-                    <input type="radio" name="sex" value="male" id="male_option">
-                    <label for="female_option">Female</label>
-                    <input type="radio" name="sex" value="female" id="female_option">
-                </section>
+                <div class="field">
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="sex" value="male" id="male_option">
+                            Male
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="sex" value="female" id="female_option">
+                            Female
+                        </label>
+                    </div>
+                </div>
 
-                <select name="species" id="species_list"></select>
+                <div class="field">
+                    <label class="label">Species</label>
+                    <div class="control">
+                        <div class="select">
+                            <select name="species" id="species_list"></select>
+                        </div>
+                    </div>
+                </div>
 
-                <section class="image_upload">
-                    <input type="file" name="pet_image" />
-                </section>
+                <div class="file">
+                    <label class="file-label">
+                        <input class="file-input" type="file" name="pet_image" accept="image/*">
+                        <span class="file-cta">
+                            <span class="file-label">
+                                Choose an image…
+                            </span>
+                        </span>
+                    </label>
+                </div>
             </section>
 
             <footer class="modal-card-foot">
