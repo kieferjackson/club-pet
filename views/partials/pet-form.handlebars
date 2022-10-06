@@ -1,21 +1,46 @@
-<section>
-    <form action="/api/pets" method="POST" enctype="multipart/form-data" onsubmit="return checkFormSubmission()">
-        <label for="pet_name">Pet Name:</label>
-        <input type="text" name="pet_name" id="pet_name" />
+<div class="modal" id="modal_container">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Add a new friend:</p>
+            <button class="delete" aria-label="close" onclick="setInactive()"></button>
+        </header>
 
-        <label for="about_pet">About Pet:</label>
-        <input type="text" name="about_pet" id="about_pet" />
+        {{!-- Add Pet Form --}}
+        <form action="/api/pets" method="POST" enctype="multipart/form-data" onsubmit="return checkFormSubmission()">
+            <section class="modal-card-body">
+                <section class="text_field">
+                    <label for="pet_name">Pet Name:</label>
+                    <input type="text" name="pet_name" id="pet_name" />
+                </section>
 
-        <section class="sex_selection">
-            <label for="male_option">Male</label>
-            <input type="radio" name="sex" value="male" id="male_option">
-            <label for="female_option">Female</label>
-            <input type="radio" name="sex" value="female" id="female_option">
-        </section>
+                <section class="text_field">
+                    <label for="about_pet">About Pet:</label>
+                    <input type="text" name="about_pet" id="about_pet" />
+                </section>
 
-        <select name="species" id="species_list"></select>
+                <section class="sex_selection">
+                    <label for="male_option">Male</label>
+                    <input type="radio" name="sex" value="male" id="male_option">
+                    <label for="female_option">Female</label>
+                    <input type="radio" name="sex" value="female" id="female_option">
+                </section>
 
-        <input type="file" name="pet_image" />
-        <button type="submit">Submit</button>
-    </form>
-</section>
+                <select name="species" id="species_list"></select>
+
+                <section class="image_upload">
+                    <input type="file" name="pet_image" />
+                </section>
+            </section>
+
+            <footer class="modal-card-foot">
+                <button type="submit" class="button is-success" onclick="setActive()">Submit</button>
+                <button class="button" onclick="setInactive()">Cancel</button>
+            </footer>
+        </form>
+    </div>
+</div>
+
+<button type="button" class="button is-primary modal-button" onclick="setActive()">Add Pet</button>
+
+<script src="/js/modal.js"></script>

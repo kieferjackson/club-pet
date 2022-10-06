@@ -1,51 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
- {{!-- TODO when confirming files sheets are connected suchas the CSS file, error message to create file --}}
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{!-- integrated css folder and bulma --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-  </head>
+{{!-- TODO when confirming files sheets are connected suchas the CSS file, error message to create file --}}
 
-  <body>
-    {{!-- .hero --}}
-    <section class="hero is-fullheight">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{!-- integrated css folder and bulma --}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/my-pets-style.css">
+</head>
 
-      <nav class="hero-head ">
-        <div class="column center">
-          <p class="navbar-item is-size-1 has-text-black has-text-weight-bold">Welcome To Club Pet!</p>
-        </div>
-        {{!-- .hero end --}}
+<body>
+  {{!-- .hero --}}
+  <section class="hero is-fullheight">
 
-        {{!-- .hero head --}}
-        <div class="column center">
-          {{!--NAVBAR integrated handlebars with HTML attributes --}}
-            <p class="navbar-item has-text-weight-bold"><a href="/">DASHBOARD</a></p>
-          {{#if loggedIn}}  
-            <p class="navbar-item has-text-weight-bold"><a href="/my_pets/{{user_id}}">MY PETS</a></p>
-            <button onclick="logoutUser()">LOGOUT</button>
-            {{else}}
-            {{!-- <a href="/login">Login</a> --}}
-            <p class="is-active"><a href="/login">Login</a></p>
-          {{/if}}  
-        </div>
-      </nav>
-      {{!-- .hero head end--}}
+    <nav class="hero-head ">
+      <div class="column center">
+        <p class="navbar-item is-size-1 has-text-black has-text-weight-bold">Welcome To Club Pet!</p>
+      </div>
+      {{!-- .hero end --}}
 
-      {{!-- .hero body --}}
-      <header class="hero-body">
-        <section class="section ">
-          <div class="container">
-            <div class="columns">
-              {{{body}}}
-            </div>
+      {{!-- .hero head --}}
+      <div class="column center">
+        {{!--NAVBAR integrated handlebars with HTML attributes --}}
+        <p class="navbar-item has-text-weight-bold"><a href="/">DASHBOARD</a></p>
+        {{#if loggedIn}}
+        <p class="navbar-item has-text-weight-bold"><a href="/my_pets/{{user_id}}">MY PETS</a></p>
+        <button onclick="logoutUser()">LOGOUT</button>
+        {{else}}
+        {{!-- <a href="/login">Login</a> --}}
+        <p class="is-active"><a href="/login">Login</a></p>
+        {{/if}}
+      </div>
+    </nav>
+    {{!-- .hero head end--}}
+
+    {{!-- .hero body --}}
+    <header class="hero-body">
+      <section class="section ">
+        <div class="container">
+          <div class="columns">
+            {{{body}}}
           </div>
-        </section>  
-      </header> 
-    </section>    
-  </body>  
+        </div>
+      </section>
+    </header>
+  </section>
+</body>
 
- <script src="/js/logout.js"></script>
+<script src="/js/logout.js"></script>
+
 </html>
