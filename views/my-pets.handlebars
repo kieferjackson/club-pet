@@ -1,10 +1,24 @@
 {{!-- pet handling --}}
 <section class="pet">
-    {{!-- <img src="" alt=""> pet image --}}
     {{#each pets as |pet| }}
-    <div class="pet-details">
-        <h3>My Name is {{pet.pet_name}} </h3>
-        <p> About Me: {{pet.about_pet}} </p>
+    <div class="box">
+        <article class="media">
+            <div class="media-left">
+                <figure class="image is-64x64">
+                    <img src="/images/pet_placeholder.png" alt="Image of {{pet.pet_name}}">
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                        <strong>{{pet.pet_name}}</strong> <small>{{pet.sex}} {{pet.species.name}}</small>
+                        <small>{{pet.likes}} likes</small>
+                        <br>
+                        {{pet.about_pet}}
+                    </p>
+                </div>
+            </div>
+        </article>
     </div>
     {{/each}}
 
