@@ -13,7 +13,7 @@
 
 <body>
   {{!-- .hero --}}
-  <section class="hero is-fullheight">
+  <section class="hero">
 
     <nav class="hero-head ">
       <div class="column center">
@@ -39,16 +39,15 @@
       </div>
     </nav>
     {{!-- .hero head end--}}
-
-    {{!-- Centered body content --}}
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-half">
-          {{{body}}}
-        </div>
+  </section>
+  {{!-- Centered body content --}}
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+        {{{body}}}
       </div>
     </div>
-  </section>
+  </div>
 </body>
 
 <script src="/js/logout.js"></script>

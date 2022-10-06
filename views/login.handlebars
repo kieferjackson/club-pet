@@ -4,15 +4,25 @@
     <div class="signUp has-text-black">
       {{!-- Login Form --}}
       <form onsubmit="loginUser()">
-        <h1>Login</h1>
+        <h1 class="title center">Login</h1>
         <section class="login_card">
-          <label for="email_login">Email:</label>
-          <input type="text" id="email_login" />
+          <div class="field">
+            <label class="label">Email Address</label>
+            <div class="control">
+              <input class="input" type="text" name="email_login" id="email_login" />
+            </div>
+          </div>
 
-          <label for="password_login">Password:</label>
-          <input type="password" id="password_login" />
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+              <input class="input" type="password" name="password_login" id="password_login" />
+            </div>
+          </div>
 
-          <button type="submit">login</button>
+          <div class="control">
+            <button type="submit" class="button is-primary">Login</button>
+          </div>
         </section>
       </form>
     </div>
@@ -24,18 +34,32 @@
     <div class="user has-text-black">
       {{!-- Signup Form --}}
       <form onsubmit="signUpUser()">
-        <h1>Signup</h1>
+        <h1 class="title center">Sign Up</h1>
         <section class="signup_card">
-          <label for="username_signup">Username:</label>
-          <input type="text" id="username_signup" />
+          <div class="field">
+            <label class="label">Username</label>
+            <div class="control">
+              <input class="input" type="text" name="username_signup" id="username_signup" />
+            </div>
+          </div>
 
-          <label for="email_signup">Email:</label>
-          <input type="text" id="email_signup" />
+          <div class="field">
+            <label class="label">Email Address</label>
+            <div class="control">
+              <input class="input" type="text" name="email_signup" id="email_signup" />
+            </div>
+          </div>
 
-          <label for="password_signup">Password:</label>
-          <input type="password" id="password_signup" />
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+              <input class="input" type="password" name="password_signup" id="password_signup" />
+            </div>
+          </div>
 
-          <button type="submit">sign up</button>
+          <div class="control">
+            <button type="submit" class="button is-warning">Sign Up</button>
+          </div>
         </section>
       </form>
     </div>

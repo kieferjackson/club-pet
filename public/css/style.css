@@ -18,6 +18,7 @@
 }
 body {
     background: url(https://data.whicdn.com/images/346178640/original.png);
+    min-height: 100vh;
 }
 
 .navbar_btn:active 
