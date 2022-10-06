@@ -58,13 +58,19 @@
             </section>
 
             <footer class="modal-card-foot">
-                <button type="submit" class="button is-success" onclick="setActive()">Submit</button>
+                <button type="submit" class="button is-success" id="pet_form_submit" onclick="setActive()">
+                    Submit
+                </button>
                 <button class="button" onclick="setInactive()">Cancel</button>
             </footer>
         </form>
     </div>
 </div>
 
-<button type="button" class="button is-primary modal-button" onclick="setActive()">Add Pet</button>
+<div class="modal_button_container box has-text-centered is-transparent">
+    <button type="button" class="button is-primary is-rounded is-large modal-button" onclick="setActive()">
+        Add Pet
+    </button>
+</div>
 
 <script src="/js/modal.js"></script>

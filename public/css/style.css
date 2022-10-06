@@ -1,9 +1,4 @@
 
-/* original css file created, when updating handle bars and for testing to see if page i
-is responsive to elements. same css template is copied in main.handlebars*/
-
-
-
 .center, .center-column, .top, .right, .bottom, .left {
     display: flex;
     justify-content: center;
@@ -21,8 +16,12 @@ is responsive to elements. same css template is copied in main.handlebars*/
 .single-spaced, .single-spaced * {
     line-height: 1;
 }
-.hero {
+body {
     background: url(https://data.whicdn.com/images/346178640/original.png);
-
 }
 
+.navbar_btn:active 
+{
+    transform: scale(0.975);
+    box-shadow: inset 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.01);
+}
