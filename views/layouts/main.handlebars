@@ -24,28 +24,30 @@
       {{!-- .hero head --}}
       <div class="column center">
         {{!--NAVBAR integrated handlebars with HTML attributes --}}
-        <p class="navbar-item has-text-weight-bold"><a href="/">DASHBOARD</a></p>
+        <p class="navbar-item has-text-weight-bold">
+          <a class="button is-primary" href="/">DASHBOARD</a>
+        </p>
         {{#if loggedIn}}
-        <p class="navbar-item has-text-weight-bold"><a href="/my_pets/{{user_id}}">MY PETS</a></p>
-        <button onclick="logoutUser()">LOGOUT</button>
+        <p class="navbar-item has-text-weight-bold">
+          <a class="button is-link" href="/my_pets/{{user_id}}">MY PETS</a>
+        </p>
+        <button class="button" onclick="logoutUser()">LOGOUT</button>
         {{else}}
         {{!-- <a href="/login">Login</a> --}}
-        <p class="is-active"><a href="/login">Login</a></p>
+        <p class="is-active"><a class="button" href="/login">Login</a></p>
         {{/if}}
       </div>
     </nav>
     {{!-- .hero head end--}}
 
-    {{!-- .hero body --}}
-    <header class="hero-body">
-      <section class="section ">
-        <div class="container">
-          <div class="columns">
-            {{{body}}}
-          </div>
+    {{!-- Centered body content --}}
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-half">
+          {{{body}}}
         </div>
-      </section>
-    </header>
+      </div>
+    </div>
   </section>
 </body>
 
